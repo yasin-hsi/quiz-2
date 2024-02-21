@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class ProfileView extends StatelessWidget {
-  const ProfileView({super.key});
+class RegulerView extends StatelessWidget {
+  const RegulerView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Center(child: Text('PROFIL')),
+      body: Center(child: Text('REGULER')),
     );
   }
 }

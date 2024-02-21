@@ -22,81 +22,66 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          backgroundColor: const Color(0xFF233975),
-          leading: Container(
-              height: 40,
-              margin: const EdgeInsets.only(left: 10),
-              child: Image.asset('assets/images/logo.png')),
-          title: const Text(
-            'EDU HSI',
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-          ),
-          actions: const [
-            Text(
-              config.appVersion,
-              style: TextStyle(color: Colors.white),
-            ),
-            SizedBox(width: 10)
-          ],
-        ),
-        body: ListView(
-          children: [
-            Container(
-                padding: const EdgeInsets.all(20),
-                child: Stack(children: [
-                  Column(
+    return ListView(
+      children: [
+        Stack(children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Text('Assalamualaikum,',
+                      Text('Assalamualaikum,',
                           style: TextStyle(color: Color(0xFF898989))),
-                      const SizedBox(height: 5),
-                      const Text(
+                      SizedBox(height: 5),
+                      Text(
                         config.userName,
                         style: TextStyle(
                             fontSize: 28, fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 5),
-                      const Text(
+                      SizedBox(height: 5),
+                      Text(
                         config.userId,
                         style: TextStyle(
                             color: Color(0xFF666666),
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(height: 15),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                          height: 240.0,
-                          autoPlay: true,
-                        ),
-                        items: banners.map((bannerImage) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return Container(
-                                  width: MediaQuery.of(context).size.width,
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 10),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    border: Border.all(
-                                        color: Colors.grey.withOpacity(0.2)),
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(5),
-                                    child: bannerImage,
-                                  ));
-                            },
-                          );
-                        }).toList(),
-                      )
                     ],
-                  )
-                ]))
-          ],
-        ));
+                  )),
+              const SizedBox(height: 5),
+              CarouselSlider(
+                options: CarouselOptions(
+                  height: 240.0,
+                  autoPlay: true,
+                ),
+                items: HomeView.banners.map((bannerImage) {
+                  return Builder(
+                    builder: (BuildContext context) {
+                      return Container(
+                          width: MediaQuery.of(context).size.width,
+                          margin: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            border:
+                                Border.all(color: Colors.grey.withOpacity(0.2)),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(5),
+                            child: bannerImage,
+                          ));
+                    },
+                  );
+                }).toList(),
+              )
+            ],
+          )
+        ])
+      ],
+    );
   }
 }
