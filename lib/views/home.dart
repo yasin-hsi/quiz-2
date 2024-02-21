@@ -95,6 +95,8 @@ class _HomeViewState extends State<HomeView> {
                   activeIndex: _activeBannerIndex,
                   count: banners.length,
                   effect: const ExpandingDotsEffect(
+                      dotWidth: 12,
+                      dotHeight: 12,
                       activeDotColor: Color(0xFF233975)),
                 ),
               )
