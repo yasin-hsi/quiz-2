@@ -1,10 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:hsi_app/config/config.dart' as config;
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
 
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int _activeBannerIndex = 0;
   static List<Image> banners = [
     Image.asset(
       'assets/images/banner/banner-1.jpg',
@@ -55,10 +62,14 @@ class HomeView extends StatelessWidget {
               const SizedBox(height: 5),
               CarouselSlider(
                 options: CarouselOptions(
-                  height: 240.0,
-                  autoPlay: true,
-                ),
-                items: HomeView.banners.map((bannerImage) {
+                    height: 240.0,
+                    autoPlay: true,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _activeBannerIndex = index;
+                      });
+                    }),
+                items: banners.map((bannerImage) {
                   return Builder(
                     builder: (BuildContext context) {
                       return Container(
@@ -77,6 +88,15 @@ class HomeView extends StatelessWidget {
                     },
                   );
                 }).toList(),
+              ),
+              const SizedBox(height: 15),
+              Center(
+                child: AnimatedSmoothIndicator(
+                  activeIndex: _activeBannerIndex,
+                  count: banners.length,
+                  effect: const ExpandingDotsEffect(
+                      activeDotColor: Color(0xFF233975)),
+                ),
               )
             ],
           )
