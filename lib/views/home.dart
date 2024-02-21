@@ -59,7 +59,7 @@ class _HomeViewState extends State<HomeView> {
                       ),
                     ],
                   )),
-              const SizedBox(height: 5),
+              const SizedBox(height: 15),
               CarouselSlider(
                 options: CarouselOptions(
                     height: 240.0,
@@ -89,7 +89,7 @@ class _HomeViewState extends State<HomeView> {
                   );
                 }).toList(),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 20),
               Center(
                 child: AnimatedSmoothIndicator(
                   activeIndex: _activeBannerIndex,
