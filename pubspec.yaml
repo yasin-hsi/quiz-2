@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -19,8 +20,10 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/cfg/
     - assets/images/logo.png
+    - assets/images/banner/banner-1.jpg
+    - assets/images/banner/banner-2.jpg
+    - assets/images/banner/banner-3.jpg
 
   fonts:
     - family: PlusJakarta
