@@ -36,8 +36,7 @@ class _HomeViewState extends State<HomeView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                  padding: const EdgeInsets.all(20),
                   child: const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
