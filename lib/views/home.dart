@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:hsi_app/components/button.dart';
+import 'package:hsi_app/components/header.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:hsi_app/config/config.dart' as config;
 
@@ -98,7 +100,58 @@ class _HomeViewState extends State<HomeView> {
                       dotHeight: 12,
                       activeDotColor: Color(0xFF233975)),
                 ),
-              )
+              ),
+              const SizedBox(height: 20),
+              Container(
+                  padding: const EdgeInsets.all(20),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Header(label: "Info Pendaftaran"),
+                      const SizedBox(height: 5),
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          border:
+                              Border.all(color: Colors.grey.withOpacity(0.2)),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFFE9F0F8),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: const Row(children: [
+                                Icon(
+                                  Icons.info,
+                                  color: Color(0xFF233975),
+                                ),
+                                SizedBox(width: 10),
+                                Text(
+                                  "Pendaftaran Program Hifzhul Mutun\nAngkatan ke-03",
+                                  style: TextStyle(
+                                    color: Color(0xFF233975),
+                                  ),
+                                ),
+                              ]),
+                            ),
+                            const SizedBox(height: 10),
+                            Container(
+                                padding: const EdgeInsets.all(10),
+                                child: const Text(
+                                    "Bismillah\nPendaftaran Hifzhul Mutun HSI AbdullahRoy\nAngkatan ke-3 telah dibuka")),
+                            const Button(label: "Selengkapnya"),
+                            const SizedBox(height: 10),
+                          ],
+                        ),
+                      )
+                    ],
+                  )),
             ],
           )
         ])
